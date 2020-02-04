@@ -37,7 +37,6 @@ function drawPlayer(screenContext, player, game, isCurrentPlayer = false) {
     const { screen: { pixelsPerFields }} = game.state
 
     let eyeAndMouthColors = 'black'
-    let faceColor = getColorFromScore(player.score)
     if (isCurrentPlayer) {
         eyeAndMouthColors = 'white'
     }
@@ -45,16 +44,7 @@ function drawPlayer(screenContext, player, game, isCurrentPlayer = false) {
     let { x, y } = player
     x *= pixelsPerFields
     y *= pixelsPerFields
-
-    // Draw face
-    screenContext.fillStyle = faceColor
-    screenContext.fillRect(x, y, pixelsPerFields, pixelsPerFields)
-
-    // Draw eyes and mouth
-    screenContext.fillStyle = eyeAndMouthColors
-    screenContext.fillRect(x+1,y+1,1,1)
-    screenContext.fillRect(x+3,y+1,1,1)
-    screenContext.fillRect(x+1,y+3,3,1)
+    screenContext.drawImage("./images/players/DOM.png", x, y)
 }
 
 function drawFruit(screenContext, fruit, game) {
